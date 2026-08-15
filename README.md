@@ -95,12 +95,18 @@ Covers:
 
 ## What I'd improve with more time
 
-- [FILL IN: e.g. drag-and-drop, search by title, task count in column headers, TypeScript, more edge-case tests]
+- Add drag-and-drop as the stretch goal, now that the dropdown-based core is solid.
+- Add a text search box for filtering by title.
+- Add more edge-case tests (e.g. moving a task to a non-existent column, deleting a task that doesn't exist).
+- Move `node:sqlite` to a more established database driver once it's out of Node's experimental stage.
 
 ## Time spent
 
-Approximately [FILL IN] over [FILL IN] days.
+Approximately 16 hours  over three days  days.
 
 ## Something I learned
 
-[FILL IN — the assignment says this is optional but they like reading it; could be about node:sqlite, ESM vs CommonJS module issues, or debugging the Windows-specific quirks we ran into]
+I learned that Node.js now ships an experimental built-in SQLite module (`node:sqlite`), which let me avoid native-module build headaches I ran into with `better-sqlite3` on Windows. I also got a clearer picture of the difference between CommonJS (`require`) and ES modules (`import`) in Node, after Vitest required switching the whole backend over to ES modules to work correctly.
+
+- If no priority is specified when creating a task, it defaults to "Medium".
+- Columns are ordered using a `position` field rather than relying on database insertion order, so column order stays stable regardless of how rows were inserted.
